@@ -2,10 +2,13 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4 mt-3 left top">
+    <a href="{% url "blog" %}" class="btn btn-primary mt-3">Return to List</a>
+    <div class="card mb-4 mt-3 top">
       <div class="card-body">
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-        <p class="text-muted">{{ object.author }} | {{ object.creation_date }}</p>
+        <p class="text-muted">
+        {{ object.author }} | {{ object.creation_date }}
+        </p>
         <p class="card-text">{{ object.content | safe }}</p>
       </div>
     </div>
