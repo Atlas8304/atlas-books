@@ -1,9 +1,9 @@
-from django.views import generic
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+from django.views import generic
 
-from .models import BlogPost
 from .forms import NewPostForm
+from .models import BlogPost
 
 
 class Post(generic.ListView):
@@ -23,7 +23,7 @@ def new_post(request):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.author = request.user
-            obj.slug = obj.title.replace(' ', '-').lower()
+            obj.slug = obj.title.replace(" ", "-").lower()
             # TODO: Remove after adding Draft review/publish capability
             obj.published_state = 1
             obj.save()

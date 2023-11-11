@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
-from .forms import RegisterUserForm
-from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import redirect, render
+
+from .forms import RegisterUserForm
 
 
 def register_request(request):
