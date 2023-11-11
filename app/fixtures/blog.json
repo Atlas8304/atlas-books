@@ -1,0 +1,41 @@
+[
+  {
+    "model": "blog.blogpost",
+    "pk": 1,
+    "fields": {
+      "title": "Blog Post 1",
+      "slug": "blog-post-1",
+      "author": 2,
+      "creation_date": "2023-11-11T12:50:25.913Z",
+      "update_date": "2023-11-11T12:50:25.913Z",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit. Urna nunc id cursus metus aliquam eleifend mi in nulla. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Malesuada fames ac turpis egestas sed tempus urna et. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Enim diam vulputate ut pharetra. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisis gravida neque convallis a cras semper auctor. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Sed odio morbi quis commodo odio.",
+      "published_state": 1
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 2,
+    "fields": {
+      "title": "Blog Post 2",
+      "slug": "blog-post-2",
+      "author": 2,
+      "creation_date": "2023-11-11T12:50:36.783Z",
+      "update_date": "2023-11-11T12:50:36.783Z",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit. Urna nunc id cursus metus aliquam eleifend mi in nulla. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Malesuada fames ac turpis egestas sed tempus urna et. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Enim diam vulputate ut pharetra. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisis gravida neque convallis a cras semper auctor. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Sed odio morbi quis commodo odio.",
+      "published_state": 1
+    }
+  },
+  {
+    "model": "blog.blogpost",
+    "pk": 3,
+    "fields": {
+      "title": "Draft Post 1",
+      "slug": "draft-post-1",
+      "author": 2,
+      "creation_date": "2023-11-11T12:50:46.403Z",
+      "update_date": "2023-11-11T12:50:46.403Z",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit. Urna nunc id cursus metus aliquam eleifend mi in nulla. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Malesuada fames ac turpis egestas sed tempus urna et. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Enim diam vulputate ut pharetra. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Facilisis gravida neque convallis a cras semper auctor. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Sed odio morbi quis commodo odio.",
+      "published_state": 0
+    }
+  }
+]
