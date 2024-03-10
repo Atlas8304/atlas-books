@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 
 from .forms import RegisterUserForm
 from .models import UserReadingList
+from books.models import Genre, Author
 
 
 def register_request(request):
@@ -62,16 +63,32 @@ def add_to_list(request, book_id):
         user_list.books.add(book_id)
     return redirect(f"/books/{book_id}")
 
+
 class MyBooksView(View):
     def get(self, request):
         books = UserReadingList.objects.get(user=request.user).books.all()
+        genres = Genre.objects.all()
+        authors = Author.objects.all()
+
         search_query = request.GET.get("q", "")
+        filter_author_id = request.GET.get("author", "")
+        filter_rating = request.GET.get("rating", "")
+        filter_genre_id = request.GET.get("genre", "")
         if search_query:
             books = books.filter(
                 Q(title__icontains=search_query)
                 | Q(author__first_name__icontains=search_query)
                 | Q(author__last_name__icontains=search_query)
             )
+        elif filter_author_id or filter_rating or filter_genre_id:
+            kwargs = {}
+            if filter_author_id:
+                kwargs.update({"author__id": filter_author_id})
+            if filter_genre_id:
+                kwargs.update({"genre__id": filter_genre_id})
+            if filter_rating:
+                kwargs.update({"rating__gte": filter_rating})
+            books = books.filter(**kwargs)
 
         page_size = request.GET.get("page_size", 4)
         paginator = Paginator(books, page_size)
@@ -82,5 +99,10 @@ class MyBooksView(View):
         return render(
             request,
             template_name="users/user_reading_list.html",
-            context={"page_obj": page_obj, "search_query": search_query},
+            context={
+                "page_obj": page_obj,
+                "search_query": search_query,
+                "genres": genres,
+                "authors": authors,
+            },
         )

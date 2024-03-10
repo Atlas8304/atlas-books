@@ -17,6 +17,37 @@
     </form>
   </div>
 </div>
+<div class="row mb-5">
+  <div class="col-4">
+    <form class="d-flex" method="get">
+      <label for="genre" class="col-sm-2 col-form-label">Genre:</label>
+      <select id="genre" name="genre" class="me-2">
+        <option value="">All</option>
+      {% for genre in genres %}
+        <option value="{{ genre.id }}">{{ genre.name }}</option>
+      {% endfor %}
+      </select>
+      <label for="rating" class="col-sm-2 col-form-label">Rating:</label>
+      <select id="rating" name="rating" class="me-2">
+        <option value="">Any</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label for="author" class="col-sm-2 col-form-label">Author:</label>
+      <select id="author" name="author" class="me-2">
+        <option value="">All</option>
+        {% for author in authors %}
+        <option value="{{ author.id }}">{{ author.full_name }}</option>
+        {% endfor %}
+    </select>
+      <button class="btn btn-success">Filter</button>
+    </form>
+  </div>
+</div>
 
 {% if page_obj %} {% for book in page_obj.object_list %}
 <div class="row mb-4">
