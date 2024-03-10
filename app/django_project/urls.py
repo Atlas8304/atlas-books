@@ -9,8 +9,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     
     path("", landing_page, name="landing_page"),
-    path("", include("users.urls")),
     path("books/", include("books.urls")),
+    path("users/", include("users.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

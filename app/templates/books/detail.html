@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %} Book Detail Page {% endblock %} 
+{% block content %}
+<div class="row mb-4">
+  <div class="col-2 me-4">
+    <img class="cover-pic" alt="cover image" src="{{ book.cover_art.url }}" />
+  </div>
+
+  <div class="col-6 ms-3 mb-4">
+    <h3>{{ book.title }}</h3>
+
+    <span class="fst-italic">
+      Authored by {% for author in book.author.all %} {% if forloop.last %}
+      {{ author.full_name }} {% else %} {{ author.full_name }}, {% endif %} {% endfor %}
+    </span>
+
+    <p>{{ book.description }}</p>
+  </div>
+
+  <div class="mt-4">
+    <div class="col-6">
+        <form method="post" action="{% url 'users:addtolist' book.id %}">
+          {% csrf_token %}
+            <button class="btn btn-success">Add to My List</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+<h4>Reviews</h4> <hr>
+{% for review in book.userreview_set.all %}
+    <div class="row mb-3">
+        <div class="col-7">
+            <b>{{ review.user.username }}</b> | Rating: {{ review.rating }} - <span class="fw-lighter">[{{ review.creation_date }}]</span>
+            <p class="mt-2 font-monospace">{{ review.comment }}</p>
+
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
