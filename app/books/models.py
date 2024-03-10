@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
@@ -26,7 +27,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.ManyToManyField(Author)
     cover_art = models.ImageField(default="default_cover.jpg")
-    published_date = models.DateField()
+    published_date = models.DateField(default=date.today)
     isbn = models.CharField(max_length=17, unique=True)
     description = models.TextField()
     genre = models.ManyToManyField(Genre)
@@ -34,6 +35,7 @@ class Book(models.Model):
         max_digits=2,
         decimal_places=1,
         validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],
+        default=0.0
     )
 
     def __str__(self) -> str:

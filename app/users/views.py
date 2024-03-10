@@ -67,7 +67,8 @@ def add_to_list(request, book_id):
 
 class MyBooksView(View):
     def get(self, request):
-        books = UserReadingList.objects.get(user=request.user).books.all()
+        reading_list, list_created = UserReadingList.objects.get_or_create(user=request.user)
+        books = reading_list.books.all()
         genres = Genre.objects.all()
         authors = Author.objects.all()
 

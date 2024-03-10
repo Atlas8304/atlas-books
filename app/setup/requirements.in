@@ -1,5 +1,5 @@
 django
 django-crispy-forms
 crispy-bootstrap4
-psycopg[binary]
+psycopg2-binary
 Pillow
