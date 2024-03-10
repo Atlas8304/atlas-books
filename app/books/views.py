@@ -8,7 +8,7 @@ from books.models import Book, Genre, Author
 
 class BooksView(View):
     def get(self, request):
-        books = Book.objects.all().order_by("id")
+        books = Book.objects.all()
         genres = Genre.objects.all()
         authors = Author.objects.all()
 
@@ -32,6 +32,8 @@ class BooksView(View):
                 kwargs.update({"rating__gte": filter_rating})
             books = books.filter(**kwargs)
         
+        books = books.order_by("title")
+
         page_size = request.GET.get("page_size", 4)
         paginator = Paginator(books, page_size)
 

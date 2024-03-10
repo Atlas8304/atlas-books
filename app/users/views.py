@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect, render
 from django.views import View
@@ -89,6 +90,8 @@ class MyBooksView(View):
             if filter_rating:
                 kwargs.update({"rating__gte": filter_rating})
             books = books.filter(**kwargs)
+
+        books = books.order_by("title")
 
         page_size = request.GET.get("page_size", 4)
         paginator = Paginator(books, page_size)
