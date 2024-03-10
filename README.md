@@ -1,4 +1,4 @@
-# django-test-playground
+# Atlas Books - (Python / Django Coding Assignment)
 ### Setup
 1. Copy `.env.sample` to `.env`
 1. Run `docker-compose up --build`
